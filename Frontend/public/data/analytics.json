@@ -1,0 +1,40 @@
+{
+  "kpis": {
+    "totalStations": 100,
+    "monitoredStations": 78
+  },
+  "manualTelemetry": {
+    "total": 85,
+    "monitored": 65
+  },
+  "statewiseCount": [
+    { "name": "Andhra Pradesh", "Total Stations": 5, "Monitored Stations": 4 },
+    { "name": "Arunachal Pradesh", "Total Stations": 1, "Monitored Stations": 1 },
+    { "name": "Assam", "Total Stations": 1, "Monitored Stations": 1 },
+    { "name": "Bihar", "Total Stations": 4, "Monitored Stations": 3 },
+    { "name": "Chhattisgarh", "Total Stations": 3, "Monitored Stations": 2 },
+    { "name": "Goa", "Total Stations": 1, "Monitored Stations": 1 },
+    { "name": "Gujarat", "Total Stations": 7, "Monitored Stations": 6 },
+    { "name": "Haryana", "Total Stations": 4, "Monitored Stations": 3 },
+    { "name": "Himachal Pradesh", "Total Stations": 1, "Monitored Stations": 1 },
+    { "name": "Jharkhand", "Total Stations": 2, "Monitored Stations": 2 },
+    { "name": "Karnataka", "Total Stations": 7, "Monitored Stations": 5 },
+    { "name": "Kerala", "Total Stations": 4, "Monitored Stations": 3 },
+    { "name": "Madhya Pradesh", "Total Stations": 6, "Monitored Stations": 5 },
+    { "name": "Maharashtra", "Total Stations": 10, "Monitored Stations": 8 },
+    { "name": "Manipur", "Total Stations": 1, "Monitored Stations": 0 },
+    { "name": "Mizoram", "Total Stations": 1, "Monitored Stations": 1 },
+    { "name": "Nagaland", "Total Stations": 1, "Monitored Stations": 0 },
+    { "name": "Odisha", "Total Stations": 3, "Monitored Stations": 2 },
+    { "name": "Punjab", "Total Stations": 4, "Monitored Stations": 4 },
+    { "name": "Rajasthan", "Total Stations": 5, "Monitored Stations": 4 },
+    { "name": "Sikkim", "Total Stations": 1, "Monitored Stations": 1 },
+    { "name": "Tamil Nadu", "Total Stations": 5, "Monitored Stations": 4 },
+    { "name": "Telangana", "Total Stations": 4, "Monitored Stations": 3 },
+    { "name": "Tripura", "Total Stations": 1, "Monitored Stations": 1 },
+    { "name": "Uttar Pradesh", "Total Stations": 7, "Monitored Stations": 5 },
+    { "name": "Uttarakhand", "Total Stations": 1, "Monitored Stations": 1 },
+    { "name": "West Bengal", "Total Stations": 3, "Monitored Stations": 2 },
+    { "name": "Jammu and Kashmir", "Total Stations": 1, "Monitored Stations": 1 }
+  ]
+}
