@@ -16,6 +16,8 @@ import Analytics from './pages/Analytics';
 import Reports from './pages/Reports';
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
+import IndustrialDashboard from './pages/industrial/IndustrialDashboard';
+import IndustrialSiteDetail from './pages/industrial/IndustrialSiteDetail';
 
 function App() {
   const { t } = useTranslation();
@@ -33,6 +35,9 @@ function App() {
             <Route path="/reports" element={<Reports />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/industrial" element={<IndustrialDashboard />} />
+            <Route path="/industrial/site/:id" element={<IndustrialSiteDetail />} />
+            
           </Routes>
         </main>
         <Footer />
