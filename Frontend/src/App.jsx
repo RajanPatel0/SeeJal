@@ -24,6 +24,7 @@ import RechargeAnalysis from './pages/researchers/RechargeAnalysis';
 import DataQuality from './pages/researchers/DataQuality';
 import DataExport from './pages/researchers/DataExport';
 import SeasonalAnalysis from './pages/researchers/SeasonalAnalysis';
+import Overview from './pages/Overview';
 
 function App() {
   const { t } = useTranslation();
@@ -49,6 +50,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/industrial" element={<IndustrialDashboard />} />
             <Route path="/industrial/site/:id" element={<IndustrialSiteDetail />} />
+            <Route path="/overview" element={<Overview />} />
 
           </Routes>
         </main>
