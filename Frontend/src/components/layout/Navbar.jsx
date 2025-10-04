@@ -13,8 +13,9 @@ const Navbar = () => {
     { path: '/dashboard', label: 'dashboard' },
     { path: '/analytics', label: 'analytics' },
     { path: '/reports', label: 'reports' },
+    { path: '/researchers', label: 'researchers' },
     { path: '/industrial', label: 'Industrial' }
-    
+
   ];
 
   const isActive = (path) => location.pathname === path;
