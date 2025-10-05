@@ -1,25 +1,22 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import './utils/i18n';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./utils/i18n";
+import "./App.css";
 
 // Components
-import Navbar from './components/layout/Navbar';
-import Footer from './components/layout/Footer';
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
 
 // Pages
-import Home from './pages/Home';
-import Dashboard from './pages/Dashboard';
-import StationDetail from './pages/StationDetail';
-import Analytics from './pages/Analytics';
-import Reports from './pages/Reports';
-import Login from './pages/Auth/Login';
-import Register from './pages/Auth/Register';
+import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
+import StationDetail from "./pages/StationDetail";
+import Analytics from "./pages/Analytics";
+import Reports from "./pages/Reports";
+import Login from "./pages/Auth/Login";
+import Register from "./pages/Auth/Register";
 
 function App() {
-  const { t } = useTranslation();
-
   return (
     <Router>
       <div className="min-h-screen bg-background flex flex-col">

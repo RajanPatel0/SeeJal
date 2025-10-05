@@ -1,24 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #1a56db;
-  --color-secondary: #0e9f6e;
-  --color-accent: #0694a2;
-  --color-background: #f8fafc;
-  --color-dark: #1f2937;
+  --color-primary: #0ea5e9;
+  --color-secondary: #10b981;
+  --color-accent: #06b6d4;
+  --color-background: #f0f9ff;
+  --color-dark: #0f172a;
+  --color-blue-light: #7dd3fc;
+  --color-green-medium: #059669;
+  --color-emerald-light: #d1fae5;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -32,7 +35,7 @@ code {
 
 /* Ensure map tiles are displayed correctly */
 .leaflet-tile {
-  filter: hue-rotate(45deg) brightness(0.95) contrast(0.9);
+  image-rendering: crisp-edges;
 }
 
 /* Custom marker cluster styles */
