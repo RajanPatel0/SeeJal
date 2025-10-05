@@ -10,12 +10,12 @@ const Navbar = () => {
 
   const navItems = [
     { path: "/", label: "Home" },
-    { path: "/dashboard", label: "dashboard" },
-    { path: "/analytics", label: "analytics" },
-    { path: "/reports", label: "reports" },
-    { path: "/researchers", label: "researchers" },
+    { path: "/dashboard", label: "Dashboard" },
+    { path: "/analytics", label: "Analytics" },
+    { path: "/reports", label: "Reports" },
+    { path: "/researchers", label: "Researchers" },
     { path: "/industrial", label: "Industrial" },
-    { path: "/overview", label: "overview" },
+    { path: "/overview", label: "Overview" },
   ];
 
   const isActive = (path) => location.pathname === path;
