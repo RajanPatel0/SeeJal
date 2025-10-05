@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import LanguageSelector from '../common/LanguageSelector';
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import LanguageSelector from "../common/LanguageSelector";
 
 const Navbar = () => {
   const { t } = useTranslation();
@@ -9,13 +9,13 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/dashboard', label: 'dashboard' },
-    { path: '/analytics', label: 'analytics' },
-    { path: '/reports', label: 'reports' },
-    { path: '/researchers', label: 'researchers' },
-    { path: '/industrial', label: 'Industrial' },
-    { path: '/overview', label: 'overview' }
+    { path: "/", label: "Home" },
+    { path: "/dashboard", label: "dashboard" },
+    { path: "/analytics", label: "analytics" },
+    { path: "/reports", label: "reports" },
+    { path: "/researchers", label: "researchers" },
+    { path: "/industrial", label: "Industrial" },
+    { path: "/overview", label: "overview" },
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -30,9 +30,9 @@ const Navbar = () => {
               <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mr-3">
                 <span className="text-white font-bold text-lg">SJ</span>
               </div>
-              <span className="text-2xl font-bold text-dark">SeeJal</span>
+              <span className="text-2xl font-bold text-dark">Seeजल</span>
             </Link>
-            
+
             {/* Desktop Navigation */}
             <div className="hidden md:ml-8 md:flex md:space-x-4">
               {navItems.map((item) => (
@@ -41,8 +41,8 @@ const Navbar = () => {
                   to={item.path}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                     isActive(item.path)
-                      ? 'bg-primary text-white'
-                      : 'text-dark hover:bg-gray-100'
+                      ? "bg-primary text-white"
+                      : "text-dark hover:bg-gray-100"
                   }`}
                 >
                   {t(item.label)}
@@ -54,19 +54,19 @@ const Navbar = () => {
           {/* Right section */}
           <div className="flex items-center space-x-4">
             <LanguageSelector />
-            
+
             <div className="hidden md:flex items-center space-x-2">
               <Link
                 to="/login"
                 className="px-4 py-2 text-sm font-medium text-dark hover:text-primary transition-colors"
               >
-                {t('login')}
+                {t("login")}
               </Link>
               <Link
                 to="/register"
                 className="px-4 py-2 text-sm font-medium bg-primary text-white rounded-md hover:bg-blue-700 transition-colors"
               >
-                {t('register')}
+                {t("register")}
               </Link>
             </div>
 
@@ -76,12 +76,21 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="inline-flex items-center justify-center p-2 rounded-md text-dark hover:bg-gray-100 focus:outline-none"
               >
-                <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <svg
+                  className="h-6 w-6"
+                  stroke="currentColor"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                    d={
+                      isMenuOpen
+                        ? "M6 18L18 6M6 6l12 12"
+                        : "M4 6h16M4 12h16M4 18h16"
+                    }
                   />
                 </svg>
               </button>
@@ -99,8 +108,8 @@ const Navbar = () => {
                   to={item.path}
                   className={`block px-3 py-2 rounded-md text-base font-medium ${
                     isActive(item.path)
-                      ? 'bg-primary text-white'
-                      : 'text-dark hover:bg-gray-100'
+                      ? "bg-primary text-white"
+                      : "text-dark hover:bg-gray-100"
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -113,14 +122,14 @@ const Navbar = () => {
                   className="block px-3 py-2 rounded-md text-base font-medium text-dark hover:bg-gray-100"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {t('login')}
+                  {t("login")}
                 </Link>
                 <Link
                   to="/register"
                   className="block px-3 py-2 rounded-md text-base font-medium bg-primary text-white hover:bg-blue-700"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {t('register')}
+                  {t("register")}
                 </Link>
               </div>
             </div>
