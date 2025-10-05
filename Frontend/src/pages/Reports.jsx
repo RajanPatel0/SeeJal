@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { mockStations } from "../utils/mockData";
 
 const Reports = () => {
+  const { t } = useTranslation();
   const [reportConfig, setReportConfig] = useState({
     type: "station",
     format: "pdf",

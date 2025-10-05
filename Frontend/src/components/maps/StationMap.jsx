@@ -5,71 +5,71 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { mockStations } from "../../utils/mockData";
 
-// India bounds to restrict map view
+// Define India bounds for map constraints
 const indiaBounds = [
-  [6.0, 68.0], // Southwest coordinates (Kanyakumari to Gujarat)
-  [35.0, 97.0], // Northeast coordinates (Kashmir to Arunachal)
+  [6.0, 68.0], // Southwest coordinates
+  [35.0, 97.0], // Northeast coordinates
 ];
 
-// Bounds controller component
+// Map bounds controller component
 const MapBoundsController = () => {
   const map = useMap();
 
-  React.useEffect(() => {
-    // Set max bounds to India
+  useEffect(() => {
+    // Set max bounds for India
     map.setMaxBounds(indiaBounds);
 
-    // Ensure initial view is within India
-    if (!map.getBounds().intersects(indiaBounds)) {
-      map.fitBounds(indiaBounds);
-    }
+    // Optional: Set minimum zoom level
+    map.setMinZoom(3);
+
+    // Optional: Set maximum zoom level
+    map.setMaxZoom(12);
   }, [map]);
 
   return null;
 };
 
-// Create responsive colored dot icons
-const createDotIcon = (color) => {
+// Function to create custom marker icons based on station status
+const getMarkerIcon = (status) => {
+  const iconColor =
+    status === "safe"
+      ? "#10B981"
+      : status === "semi-critical"
+      ? "#F59E0B"
+      : "#EF4444";
+
   return L.divIcon({
-    className: "custom-dot-marker",
-    html: `<div style="
-      background-color: ${color};
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      border: 2px solid white;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-      cursor: pointer;
-    "></div>`,
-    iconSize: [14, 14],
-    iconAnchor: [7, 7],
-    popupAnchor: [0, -7],
+    html: `
+      <div style="
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: ${iconColor};
+        border: 3px solid white;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: bold;
+        color: white;
+      ">
+        ${status === "critical" ? "!" : status === "semi-critical" ? "⚠" : "✓"}
+      </div>
+    `,
+    className: "custom-station-marker",
+    iconSize: [20, 20],
+    iconAnchor: [10, 10],
   });
 };
 
-// Define colored dot icons
-const dotIcons = {
-  green: createDotIcon("#10B981"), // Safe - Green
-  orange: createDotIcon("#F59E0B"), // Semi-critical - Orange
-  red: createDotIcon("#EF4444"), // Critical - Red
-  blue: createDotIcon("#3B82F6"), // Default - Blue
-};
-
-// Get marker icon by station status
-const getMarkerIcon = (status) => {
-  switch (status) {
-    case "safe":
-      return dotIcons.green;
-    case "semi-critical":
-      return dotIcons.orange;
-    case "critical":
-      return dotIcons.red;
-    default:
-      return dotIcons.blue;
-  }
-};
-
-const StationMap = () => {
+// Accept props for filtering
+const StationMap = ({
+  onStationSelect,
+  selectedStation,
+  filters = { state: "all", status: "all" },
+  stations = mockStations,
+}) => {
   const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(false);
 
@@ -86,7 +86,7 @@ const StationMap = () => {
   }, []);
 
   // Filter stations to ensure they're within India bounds
-  const stationsWithinIndia = mockStations.filter(
+  const stationsWithinIndia = stations.filter(
     (station) =>
       station.lat >= 6.0 &&
       station.lat <= 35.0 &&
@@ -95,7 +95,12 @@ const StationMap = () => {
   );
 
   const handleStationClick = (stationId) => {
-    navigate(`/station/${stationId}`);
+    if (onStationSelect) {
+      const station = stationsWithinIndia.find((s) => s.id === stationId);
+      onStationSelect(station);
+    } else {
+      navigate(`/station/${stationId}`);
+    }
   };
 
   // In the return statement of your StationMap component, update the container div:
@@ -136,11 +141,10 @@ const StationMap = () => {
       >
         <MapBoundsController />
 
-        {/* Soil Terrain Tile Layer */}
+        {/* Political Map Tile Layer */}
         <TileLayer
-          url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
-          attribution="Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
-          bounds={indiaBounds}
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
 
         {/* Station Markers */}

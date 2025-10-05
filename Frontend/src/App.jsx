@@ -25,8 +25,9 @@ import DataQuality from "./pages/researchers/DataQuality";
 import DataExport from "./pages/researchers/DataExport";
 import SeasonalAnalysis from "./pages/researchers/SeasonalAnalysis";
 import Overview from "./pages/Overview";
-const { t } = useTranslation();
+
 function App() {
+  const { t } = useTranslation();
   return (
     <Router>
       <div className="min-h-screen bg-background flex flex-col">
